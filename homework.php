@@ -1,17 +1,12 @@
 <? 
 //заднание 1
 
-$a = -5;
-$b = -10;
-
-if ($a >= 0 && $b >= 0) {
-    echo ($a - $b);
-}
-elseif ($a <= 0 && $b <= 0) {
-    echo ($a * $b);
-}
-elseif (($a >= 0 && $b >= 0) || ($a <= 0 && $b <= 0)) {
-    echo ($a + $b);
+$i = 0;
+while($i <= 100) {
+    if($i % 3 == 0) {
+        echo "$i<br>";
+    }
+    $i++;
 }
 
 ?>
@@ -20,42 +15,22 @@ elseif (($a >= 0 && $b >= 0) || ($a <= 0 && $b <= 0)) {
 
 <?
 //задание 2
+$i = 0;
+do{
+    if($i == 0){
+        echo "$i - это ноль.<br>";
+    }
+    elseif($i % 2 == 0){
+        echo "$i - это четное число.<br>";
+    }
+    else {
+        echo "$i - это нечетное число.<br>";
+    }
+    $i++;
+        
+    } 
+while($i <= 10);
 
-switch($a = 10) {
-    case 0:
-        echo "0 <br>";
-    case 1:
-        echo "1 <br>";
-    case 2:
-        echo "2 <br>";
-    case 3:
-        echo "3 <br>";
-    case 4:
-        echo "4 <br>";
-    case 5:
-        echo "5 <br>";
-    case 6:
-        echo "6 <br>";
-    case 7:
-        echo "7 <br>";
-    case 8:
-        echo "8 <br>";
-    case 9:
-        echo "9 <br>";
-    case 10:
-        echo "10 <br>";
-    case 11:
-        echo "11 <br>";
-    case 12:
-        echo "12 <br>";
-    case 13:
-        echo "13 <br>";
-    case 14:
-        echo "14 <br>";
-    case 15:
-        echo "15 <br>";
-}
-    
 ?>
 
 <hr>
@@ -63,21 +38,62 @@ switch($a = 10) {
 <?
 //задание 3
 
-function sum($a, $b) {
-    return $a+$b;
-}
-function raz($a, $b) {
-    return $a-$b;
-}
-function pro($a, $b) {
-    return $a*$b;
-}
-function cha($a, $b) {
-    return $a/$b;
+$regions = ['Московская область' => ['Люберцы', 'Одинцово', 'Красногорск'],
+    'Республика Мордовия' => ['Саранск', 'Ковылкино', 'Рузаевка'],
+    'Кировская область' => ['Киров', 'Зуевка', 'Омутинск']];
+
+foreach($regions as $region => $city) {
+    $str = implode(', ', $city).".";
+    echo "$region:<br>$str<br>";
 }
 
-echo sum(2, 4)."<br>";
-echo raz(2, 4)."<br>";
-echo pro(2, 4)."<br>";
-echo sum(2, 4);
+
+?>
+
+<hr>
+
+<?
+//задние 4
+
+function rus2translit($trslt) {
+    $converter = array(
+        'а' => 'a',   'б' => 'b',   'в' => 'v',
+        'г' => 'g',   'д' => 'd',   'е' => 'e',
+        'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
+        'и' => 'i',   'й' => 'y',   'к' => 'k',
+        'л' => 'l',   'м' => 'm',   'н' => 'n',
+        'о' => 'o',   'п' => 'p',   'р' => 'r',
+        'с' => 's',   'т' => 't',   'у' => 'u',
+        'ф' => 'f',   'х' => 'h',   'ц' => 'c',
+        'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
+        'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
+        'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
+
+        'А' => 'A',   'Б' => 'B',   'В' => 'V',
+        'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+        'Ё' => 'E',   'Ж' => 'Zh',  'З' => 'Z',
+        'И' => 'I',   'Й' => 'Y',   'К' => 'K',
+        'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+        'О' => 'O',   'П' => 'P',   'Р' => 'R',
+        'С' => 'S',   'Т' => 'T',   'У' => 'U',
+        'Ф' => 'F',   'Х' => 'H',   'Ц' => 'C',
+        'Ч' => 'Ch',  'Ш' => 'Sh',  'Щ' => 'Sch',
+        'Ь' => '\'',  'Ы' => 'Y',   'Ъ' => '\'',
+        'Э' => 'E',   'Ю' => 'Yu',  'Я' => 'Ya',
+    );
+    return strtr($trslt, $converter);
+}
+
+echo rus2translit('вывожу текст транслитом.');
+
+        ?>
+<hr>
+
+<?
+//задание 5
+
+function zamenaProbelov($str) {
+    return str_replace(" ", "_", $str);
+}
+ echo zamenaProbelov("Проверяю замену пробелов.");
 ?>
