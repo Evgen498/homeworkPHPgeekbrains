@@ -96,4 +96,5 @@ function zamenaProbelov($str) {
     return str_replace(" ", "_", $str);
 }
  echo zamenaProbelov("Проверяю замену пробелов.");
+
 ?>
